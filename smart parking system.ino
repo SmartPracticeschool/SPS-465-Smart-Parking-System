@@ -22,28 +22,26 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
  
   cm = (duration/2) / 29.1;     
+  
   if (cm>100)
-  {	
+  {	digitalWrite(3,LOW);
     Serial.println("Parking Slot is empty");
     Serial.print("Object is  ");
     Serial.print(cm);
     Serial.println(" centimeters away");
     digitalWrite(4,HIGH);
-    delay(500);
-    digitalWrite(4,LOW);
-    delay(500);
+    
    }
   else if(cm<90)
-  {
+  {	digitalWrite(4,LOW);
     Serial.println("Parking Slot is full");
     Serial.print("Object is  ");
     Serial.print(cm);
     Serial.println(" centimeters away");
     digitalWrite(3,HIGH);
-    delay(500);
-    digitalWrite(3,LOW);
-    delay(500);
-  }
+    
   
+  
+  }
 }
 
